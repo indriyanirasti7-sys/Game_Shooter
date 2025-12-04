@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Shooter Sederhana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>SPACE SHOOTER</h1>
+        
+        <div class="game-info">
+            <div class="info-box">
+                <div class="info-label">SKOR</div>
+                <div class="info-value" id="score">0</div>
+            </div>
+            <div class="info-box">
+                <div class="info-label">NYAWA</div>
+                <div class="info-value" id="lives">3</div>
+            </div>
+            <div class="info-box">
+                <div class="info-label">LEVEL</div>
+                <div class="info-value" id="level">1</div>
+            </div>
+            <div class="info-box">
+                <div class="info-label">PELURU</div>
+                <div class="info-value" id="ammo">30</div>
+            </div>
+        </div>
+        
+        <div class="health-bar-container">
+            <div class="health-label">KESEHATAN PEMAIN:</div>
+            <div class="health-bar">
+                <div class="health-fill" id="healthFill"></div>
+            </div>
+            <div class="health-value" id="healthValue">100%</div>
+        </div>
+        
+        <canvas id="gameCanvas" width="1024" height="768"></canvas>
+        
+        <div class="controls">
+            <h3>KONTROL PERMAINAN</h3>
+            <div class="controls-row">
+                <span class="key">←</span> Gerak ke Kiri
+                <span class="key">→</span> Gerak ke Kanan
+            </div>
+            <div class="controls-row">
+                <span class="key">SPACE</span> Tembak Peluru
+            </div>
+            <div class="controls-row">
+                <span class="key">R</span> Isi Ulang Peluru
+            </div>
+            <div class="controls-row">
+                <span class="key">P</span> Jeda / Lanjutkan Permainan
+            </div>
+        </div>
+    
+    </div>
+    
+    <div class="game-message" id="gameOverMessage">
+        <div class="message-title">GAME OVER</div>
+        <div class="message-text">Skor akhir: <span id="finalScore">0</span></div>
+        <div class="message-text">Level tertinggi: <span id="finalLevel">1</span></div>
+        <div class="message-buttons">
+            <button class="restart-btn" onclick="restartGame()">MAIN LAGI</button>
+            <button class="quit-btn" onclick="quitGame()">KELUAR</button>
+        </div>
+    </div>
+    
+    <div class="game-message" id="levelUpMessage">
+        <div class="message-title">LEVEL UP!</div>
+        <div class="message-text">Selamat! Anda naik ke level <span id="newLevel">2</span></div>
+        <div class="message-buttons">
+            <button class="restart-btn" onclick="continueGame()">LANJUTKAN</button>
+        </div>
+    </div>
 
+    <script src="game.js"></script>
+</body>
+</html>
