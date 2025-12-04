@@ -1,0 +1,332 @@
+body {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #0a0a2a, #1a1a40);
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+.game-container {
+    text-align: center;
+    max-width: 1100px;
+}
+
+h1 {
+    color: #4fc3f7;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(79, 195, 247, 0.7);
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    background-color: rgba(0, 0, 50, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #4fc3f7;
+}
+
+.info-box {
+    text-align: center;
+}
+
+.info-label {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4fc3f7;
+}
+
+.health-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    background-color: rgba(0, 0, 50, 0.5);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #4fc3f7;
+}
+
+.health-label {
+    font-size: 16px;
+    color: #aaa;
+    margin-right: 15px;
+}
+
+.health-bar {
+    width: 300px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-right: 15px;
+    border: 2px solid #444;
+}
+
+.health-fill {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, #4CAF50, #8BC34A);
+    border-radius: 8px;
+    transition: width 0.3s ease;
+    position: relative;
+}
+
+.health-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%);
+    border-radius: 8px;
+}
+
+.health-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4CAF50;
+    min-width: 60px;
+}
+
+canvas {
+    border: 3px solid #4fc3f7;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(79, 195, 247, 0.5);
+    background-color: #000;
+    display: block;
+    margin: 0 auto;
+}
+
+.controls {
+    margin-top: 20px;
+    background-color: rgba(0, 0, 50, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #4fc3f7;
+}
+
+.controls h3 {
+    margin-top: 0;
+    color: #4fc3f7;
+}
+
+.key {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #333;
+    border: 1px solid #4fc3f7;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.controls-row {
+    margin: 10px 0;
+}
+
+.game-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 50, 0.95);
+    padding: 40px 50px;
+    border-radius: 15px;
+    border: 3px solid #4fc3f7;
+    text-align: center;
+    z-index: 10;
+    display: none;
+    box-shadow: 0 0 40px rgba(79, 195, 247, 0.7);
+    min-width: 400px;
+}
+
+.message-title {
+    font-size: 36px;
+    color: #4fc3f7;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px rgba(79, 195, 247, 0.7);
+}
+
+.message-text {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.message-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.restart-btn {
+    background-color: #4fc3f7;
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 150px;
+}
+
+.restart-btn:hover {
+    background-color: #29b6f6;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(41, 182, 246, 0.7);
+}
+
+.quit-btn {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 150px;
+}
+
+.quit-btn:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(244, 67, 54, 0.7);
+}
+
+.footer {
+    margin-top: 20px;
+    color: #aaa;
+    font-size: 14px;
+}
+
+.feature-list {
+    text-align: left;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.feature-list li {
+    margin-bottom: 5px;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 1100px) {
+    .game-container {
+        max-width: 95%;
+    }
+    
+    canvas {
+        width: 100%;
+        max-width: 1024px;
+        height: auto;
+    }
+    
+    .game-info {
+        flex-wrap: wrap;
+    }
+    
+    .info-box {
+        flex: 1 0 45%;
+        margin-bottom: 10px;
+    }
+    
+    .health-bar {
+        width: 200px;
+    }
+    
+    .health-bar-container {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .game-message {
+        min-width: 300px;
+        padding: 30px;
+    }
+    
+    .message-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Animasi untuk health bar saat terkena damage */
+@keyframes healthDamage {
+    0% { background: linear-gradient(to right, #f44336, #ff9800); }
+    100% { background: linear-gradient(to right, #4CAF50, #8BC34A); }
+}
+
+.health-damage {
+    animation: healthDamage 0.5s ease;
+}
+
+/* Style untuk halaman utama setelah quit */
+.home-page {
+    text-align: center;
+    padding: 50px;
+}
+
+.home-title {
+    color: #4fc3f7;
+    font-size: 48px;
+    margin-bottom: 40px;
+    text-shadow: 0 0 15px rgba(79, 195, 247, 0.7);
+}
+
+.home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.home-btn {
+    padding: 20px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    min-width: 200px;
+}
+
+.home-btn.play {
+    background-color: #4fc3f7;
+    color: #000;
+}
+
+.home-btn.play:hover {
+    background-color: #29b6f6;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(41, 182, 246, 0.7);
+}
+
+.home-btn.quit {
+    background-color: #757575;
+    color: #fff;
+}
+
+.home-btn.quit:hover {
+    background-color: #616161;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(117, 117, 117, 0.7);
+}
